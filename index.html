@@ -42,7 +42,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 20px 14px 40px;
+            padding: 24px 14px 40px;
         }
 
         .container {
@@ -56,25 +56,28 @@
         /* رأس الصفحة والشعار */
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             width: 100%;
         }
 
         .logo-wrapper {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 12px;
+            width: 135px;
+            height: 135px;
+            margin: 0 auto 16px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,106,0,0.15) 0%, rgba(26,26,32,0) 70%);
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid rgba(255, 106, 0, 0.3);
+            border: 3px solid var(--accent-orange);
+            box-shadow: 0 0 25px rgba(255, 106, 0, 0.35);
+            overflow: hidden;
+            padding: 10px;
         }
 
         .logo-img {
-            max-width: 110px;
-            max-height: 110px;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
         }
 
@@ -92,49 +95,28 @@
             font-weight: 600;
         }
 
-        /* صندوق بيانات الفرع النشط */
+        /* بطاقة بيانات الفرع النشط */
         .branch-badge-card {
             width: 100%;
             background: linear-gradient(145deg, #1c1c24, #14141a);
             border: 1px solid var(--border-color);
             border-right: 4px solid var(--accent-orange);
             border-radius: var(--radius-md);
-            padding: 14px 16px;
+            padding: 14px 18px;
             margin-bottom: 22px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             box-shadow: var(--shadow-card);
         }
 
         .branch-info h2 {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-main);
         }
 
         .branch-info p {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .switch-branch-btn {
-            background: rgba(255, 106, 0, 0.12);
-            color: var(--accent-orange);
-            border: 1px solid rgba(255, 106, 0, 0.3);
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .switch-branch-btn:active {
-            transform: scale(0.95);
-            background: var(--accent-orange);
-            color: #fff;
+            margin-top: 3px;
         }
 
         /* قائمة أزرار الخدمات */
@@ -178,7 +160,6 @@
             transition: background 0.2s ease;
         }
 
-        /* تخصيص هوية كل زر */
         .action-card.maps:hover::before { background: var(--accent-gold); }
         .action-card.whatsapp:hover::before { background: var(--accent-green); }
         .action-card.vcard:hover::before { background: var(--accent-orange); }
@@ -237,7 +218,7 @@
             fill: currentColor;
         }
 
-        /* نافذة اختيار الفرع (Modal) */
+        /* نافذة إنستاباي المنبثقة */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -262,7 +243,7 @@
             border-radius: var(--radius-lg);
             width: 100%;
             max-width: 400px;
-            padding: 20px;
+            padding: 22px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
 
@@ -284,35 +265,13 @@
             background: transparent;
             border: none;
             color: var(--text-muted);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             cursor: pointer;
         }
 
-        .branch-option {
-            display: block;
-            width: 100%;
-            text-align: right;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 12px 14px;
-            color: var(--text-main);
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .branch-option:hover {
-            border-color: var(--accent-orange);
-            color: var(--accent-orange);
-        }
-
-        /* نافذة إنستاباي المنبثقة */
         .instapay-box {
             text-align: center;
-            padding: 10px 0;
+            padding: 6px 0;
         }
 
         .instapay-username {
@@ -340,6 +299,25 @@
             border: none;
             cursor: pointer;
             margin-bottom: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary:active {
+            background: var(--accent-orange-hover);
+        }
+
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            background: rgba(255, 106, 0, 0.12);
+            color: var(--accent-orange);
+            border: 1px solid rgba(255, 106, 0, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            text-align: center;
         }
 
         /* شريط التنبيه Toast */
@@ -350,7 +328,7 @@
             transform: translateX(-50%) translateY(100px);
             background: #2E7D32;
             color: #FFFFFF;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 30px;
             font-size: 0.88rem;
             font-weight: 600;
@@ -378,20 +356,18 @@
         <!-- الرأس واللوجو -->
         <header>
             <div class="logo-wrapper">
-                <!-- استبدل الرابط أدناه بمسار اللوجو logo.jpg -->
-                <img src="logo.jpg" alt="Scooter Shop Company Logo" class="logo-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972185.png'">
+                <img src="logo.jpg" alt="Scooter Shop Logo" class="logo-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972185.png'">
             </div>
             <h1 class="brand-title">SCOOTER SHOP COMPANY</h1>
             <p class="brand-subtitle">بوابتك السريعة لخدمات الفروع والمعارض</p>
         </header>
 
-        <!-- بطاقة بيانات الفرع الحالي -->
+        <!-- بطاقة بيانات الفرع النشط -->
         <div class="branch-badge-card">
             <div class="branch-info">
                 <h2 id="branchNameDisplay">جارٍ تحميل الفرع...</h2>
                 <p id="branchAddressDisplay">يرجى الانتظار</p>
             </div>
-            <button class="switch-branch-btn" onclick="openBranchModal()">تغيير الفرع</button>
         </div>
 
         <!-- قائمة الخدمات التفاعلية -->
@@ -447,13 +423,13 @@
                     </div>
                     <div class="action-text">
                         <h3>الدفع عبر تطبيق إنستاباي</h3>
-                        <p>تحويل آمن وفوري لحساب الفرع</p>
+                        <p>تحويل فوري لحساب الفرع</p>
                     </div>
                 </div>
                 <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></div>
             </div>
 
-            <!-- 5. الشكاوى والمقترحات المركزية -->
+            <!-- 5. الشكاوى والمقترحات -->
             <a id="btnComplaints" href="#" class="action-card complaints">
                 <div class="action-content">
                     <div class="icon-box icon-complaints">
@@ -474,18 +450,7 @@
         </footer>
     </div>
 
-    <!-- نافذة اختيار وتغيير الفرع -->
-    <div id="branchModal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>اختر الفرع</h3>
-                <button class="modal-close" onclick="closeBranchModal()">&times;</button>
-            </div>
-            <div id="branchOptionsContainer"></div>
-        </div>
-    </div>
-
-    <!-- نافذة الدفع إنستاباي -->
+    <!-- نافذة إنستاباي المنبثقة -->
     <div id="instapayModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -493,10 +458,10 @@
                 <button class="modal-close" onclick="closeInstapayModal()">&times;</button>
             </div>
             <div class="instapay-box">
-                <p style="font-size: 0.85rem; color: var(--text-muted);">عنوان الدفع اللحظي (IPA) الخاص بالفرع:</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">عنوان الدفع اللحظي (IPA) المخصص للفرع:</p>
                 <div class="instapay-username" id="instapayDisplay">user@instapay</div>
-                <button class="btn-primary" onclick="copyInstapayUser()">نسخ المعرف والتحويل</button>
-                <a id="btnOpenInstapay" href="#" target="_blank" class="switch-branch-btn" style="display:block; text-align:center; padding: 10px; margin-top: 8px;">فتح تطبيق / رابط إنستاباي</a>
+                <button class="btn-primary" onclick="copyInstapayUser()">نسخ المعرف</button>
+                <a id="btnOpenInstapay" href="#" target="_blank" class="btn-secondary">فتح رابط الدفع المباشر</a>
             </div>
         </div>
     </div>
@@ -564,9 +529,9 @@
 
         /**
          * اسم الدالة: getBranchFromURL
-         * المميزات: قراءة معرّف الفرع من رابط الصفحة (?branch=X) بدقة واختيار الفرع الافتراضي عند عدم وجوده
+         * المميزات: قراءة معرّف الفرع من رابط الصفحة (?branch=X) بدقة وتعيين الفرع 1 افتراضياً
          * مربوطة بـ: تعمل عند بدء تحميل الصفحة (DOMContentLoaded)
-         * نصيحة: تقبل الأرقام من 1 إلى 5 أو يتم التوجيه لفرع 1 تلقائياً
+         * نصيحة: يقرأ الباراميتر من 1 إلى 5
          */
         function getBranchFromURL() {
             const params = new URLSearchParams(window.location.search);
@@ -579,9 +544,9 @@
 
         /**
          * اسم الدالة: renderBranchData
-         * المميزات: تحديث كافة أزرار وعناصر الواجهة بالروابط والأرقام الخاصة بالفرع المختار
-         * مربوطة بـ: استدعاء عند فتح الصفحة أو تغيير الفرع
-         * نصيحة: تأكد من صحة أرقام الواتساب وروابط الماب في BRANCHES_CONFIG
+         * المميزات: تحديث كافة أزرار وعناصر الواجهة بالروابط والأرقام الخاصة بالفرع المطلوب
+         * مربوطة بـ: استدعاء عند فتح الصفحة
+         * نصيحة: تأكد من ضبط الأرقام والروابط في كائن BRANCHES_CONFIG
          */
         function renderBranchData(branchId) {
             currentBranchId = branchId;
@@ -611,7 +576,7 @@
          * اسم الدالة: saveBranchContact
          * المميزات: توليد وتنزيل كارت vCard (.vcf) لحفظ اسم ورقم الفرع في هاتف العميل مباشرة
          * مربوطة بـ: زر "حفظ رقم الفرع في الهاتف"
-         * نصيحة: يدعم هواتف آيفون وأندرويد فور فتح الملف
+         * نصيحة: متوافق مع نظامي Android و iOS فور فتح الملف
          */
         function saveBranchContact() {
             const branch = BRANCHES_CONFIG[currentBranchId];
@@ -670,31 +635,7 @@
             }, 2500);
         }
 
-        /* دوال إدارة النوافذ المنبثقة (Modals) */
-        function openBranchModal() {
-            const container = document.getElementById('branchOptionsContainer');
-            container.innerHTML = '';
-            Object.keys(BRANCHES_CONFIG).forEach(id => {
-                const b = BRANCHES_CONFIG[id];
-                const btn = document.createElement('button');
-                btn.className = 'branch-option';
-                btn.textContent = b.name;
-                btn.onclick = () => {
-                    renderBranchData(id);
-                    closeBranchModal();
-                    // تحديث الرابط في المتصفح دون إعادة تحميل الصفحة
-                    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?branch=' + id;
-                    window.history.pushState({ path: newUrl }, '', newUrl);
-                };
-                container.appendChild(btn);
-            });
-            document.getElementById('branchModal').classList.add('active');
-        }
-
-        function closeBranchModal() {
-            document.getElementById('branchModal').classList.remove('active');
-        }
-
+        /* دوال إدارة نافذة إنستاباي */
         function openInstapayModal() {
             document.getElementById('instapayModal').classList.add('active');
         }
@@ -703,7 +644,6 @@
             document.getElementById('instapayModal').classList.remove('active');
         }
 
-        // إغلاق النوافذ عند النقر على الخلفية
         window.onclick = function(event) {
             if (event.target.classList.contains('modal-overlay')) {
                 event.target.classList.remove('active');
