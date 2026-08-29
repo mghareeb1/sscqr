@@ -36,7 +36,15 @@
         }
 
         body {
-            background-color: var(--bg-primary);
+            background-color: #0b0b0e;
+            background-image: 
+                radial-gradient(circle at 50% 15%, rgba(255, 106, 0, 0.08) 0%, transparent 60%),
+                linear-gradient(45deg, #111116 25%, transparent 25%), 
+                linear-gradient(-45deg, #111116 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #111116 75%), 
+                linear-gradient(-45deg, transparent 75%, #111116 75%);
+            background-size: 100% 100%, 12px 12px, 12px 12px, 12px 12px, 12px 12px;
+            background-position: 0 0, 0 0, 6px 0, 6px -6px, 0px 6px;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
