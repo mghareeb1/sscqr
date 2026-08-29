@@ -251,4 +251,409 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius-lg);
             width: 100%;
-            max-width: 36
+            max-width: 360px;
+            padding: 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-header h3 {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .instapay-box {
+            text-align: center;
+            padding: 4px 0;
+        }
+
+        .instapay-username {
+            background: #111116;
+            border: 1px dashed var(--border-color);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin: 10px 0 14px;
+            direction: ltr;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 100%;
+            background: var(--accent-orange);
+            color: #fff;
+            padding: 10px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.84rem;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary:active {
+            background: var(--accent-orange-hover);
+        }
+
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            background: rgba(255, 106, 0, 0.12);
+            color: var(--accent-orange);
+            border: 1px solid rgba(255, 106, 0, 0.3);
+            padding: 9px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        /* شريط التنبيه Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #2E7D32;
+            color: #FFFFFF;
+            padding: 8px 18px;
+            border-radius: 24px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+            z-index: 2000;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        footer {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-wrapper">
+                <img src="logo.jpg" alt="Scooter Shop Logo" class="logo-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2972/2972185.png'">
+            </div>
+            <h1 class="brand-title">SCOOTER SHOP COMPANY</h1>
+            <p class="brand-subtitle">بوابتك السريعة لخدمات الفروع والمعارض</p>
+        </header>
+
+        <div class="branch-badge-card">
+            <div class="branch-info">
+                <h2 id="branchNameDisplay">جارٍ تحميل الفرع...</h2>
+                <p id="branchAddressDisplay">يرجى الانتظار</p>
+            </div>
+        </div>
+
+        <main class="actions-list">
+            
+            <a id="btnMaps" href="#" target="_blank" class="action-card maps">
+                <div class="action-content">
+                    <div class="icon-box icon-maps">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="action-text">
+                        <h3>تقييم الفرع على خرائط جوجل</h3>
+                        <p>شاركنا رأيك وتجربتك داخل المعرض</p>
+                    </div>
+                </div>
+                <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></div>
+            </a>
+
+            <a id="btnWhatsapp" href="#" class="action-card whatsapp">
+                <div class="action-content">
+                    <div class="icon-box icon-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 16.67c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23z"/></svg>
+                    </div>
+                    <div class="action-text">
+                        <h3>تواصل مع مبيعات الفرع</h3>
+                        <p>محادثة مباشرة عبر واتساب</p>
+                    </div>
+                </div>
+                <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></div>
+            </a>
+
+            <div class="action-card vcard" onclick="saveBranchContact()">
+                <div class="action-content">
+                    <div class="icon-box icon-vcard">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+                    </div>
+                    <div class="action-text">
+                        <h3>حفظ رقم الفرع في الهاتف</h3>
+                        <p>إضافة جهة الاتصال بضغطة واحدة</p>
+                    </div>
+                </div>
+                <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></div>
+            </div>
+
+            <div class="action-card instapay" onclick="openInstapayModal()">
+                <div class="action-content">
+                    <div class="icon-box icon-instapay">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                    </div>
+                    <div class="action-text">
+                        <h3>الدفع عبر تطبيق إنستاباي</h3>
+                        <p>تحويل فوري لحساب الفرع</p>
+                    </div>
+                </div>
+                <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></div>
+            </div>
+
+            <a id="btnComplaints" href="#" class="action-card complaints">
+                <div class="action-content">
+                    <div class="icon-box icon-complaints">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    </div>
+                    <div class="action-text">
+                        <h3>الشكاوى والمقترحات</h3>
+                        <p>تواصل مباشر مع الإدارة العامة</p>
+                    </div>
+                </div>
+                <div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></div>
+            </a>
+
+        </main>
+
+        <footer>
+            <p>© 2026 Scooter Shop Company. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+
+    <div id="instapayModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>الدفع عبر إنستاباي (InstaPay)</h3>
+                <button class="modal-close" onclick="closeInstapayModal()">×</button>
+            </div>
+            <div class="instapay-box">
+                <p style="font-size: 0.85rem; color: var(--text-muted);">عنوان الدفع اللحظي (IPA) المخصص للفرع:</p>
+                <div class="instapay-username" id="instapayDisplay">user@instapay</div>
+                <button class="btn-primary" onclick="copyInstapayUser()">نسخ المعرف</button>
+                <a id="btnOpenInstapay" href="#" target="_blank" class="btn-secondary">فتح رابط الدفع المباشر</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastMessage" class="toast">تم النسخ بنجاح</div>
+
+    <script>
+        /**
+         * الإعدادات المركزية للفروع (Central Branches Configuration)
+         * مبدأ DRY: كود مركزي واحد يحتوي على بيانات الفروع الخمسة الفعلية
+         */
+        const BRANCHES_CONFIG = {
+            "1": {
+                name: "فرع القاهرة - مدينة نصر",
+                address: "مدينة نصر - الحى السابع - ٢٥ شارع محمد الصعيدى (بجوار مدرسة الألسن الحديثة للغات)",
+                phone: "01032320005",
+                whatsapp: "201032320005",
+                mapsUrl: "https://maps.app.goo.gl/bqR5ycSrXhcr1dtz6?g_st=ic",
+                instapayUser: "01032320005@instapay",
+                instapayUrl: "https://ipn.eg"
+            },
+            "2": {
+                name: "فرع المنصورة - الدقهلية",
+                address: "شـارع المـختـلـط (أمـام مـحـكمـة الاسـتـئـنـاف)",
+                phone: "01016362125",
+                whatsapp: "201016362125",
+                mapsUrl: "https://maps.app.goo.gl/WACJYtCKFTKnazA49?g_st=ic",
+                instapayUser: "01016362125@instapay",
+                instapayUrl: "https://ipn.eg"
+            },
+            "3": {
+                name: "فرع الزقازيق - الشرقية",
+                address: "شارع موقف المنصورة (بـجـوار المسـتـشـفى الـتـخـصـصي)",
+                phone: "01003260905",
+                whatsapp: "201003260905",
+                mapsUrl: "https://maps.app.goo.gl/8ZqN6vFhgm4Y1tYV6?g_st=ipc",
+                instapayUser: "01003260905@instapay",
+                instapayUrl: "https://ipn.eg"
+            },
+            "4": {
+                name: "فرع دمياط الجديدة",
+                address: "شـارع المـحجـوب (أمام مطعم جولدن اسبون)",
+                phone: "01097010570",
+                whatsapp: "201097010570",
+                mapsUrl: "https://maps.app.goo.gl/UxMBTrMQFgxjGKUD8?g_st=ic",
+                instapayUser: "01097010570@instapay",
+                instapayUrl: "https://ipn.eg"
+            },
+            "5": {
+                name: "فرع بلقاس - الدقهلية",
+                address: "أمام المحكمة (بجوار الصياد للايس كريم)",
+                phone: "01009681882",
+                whatsapp: "201009681882",
+                mapsUrl: "https://maps.app.goo.gl/MHDTRgaKnrS33f1UA?g_st=ic",
+                instapayUser: "01009681882@instapay",
+                instapayUrl: "https://ipn.eg"
+            }
+        };
+
+        // رقم إدارة الشكاوى والمقترحات الموحد لكافة الفروع
+        const CENTRAL_COMPLAINTS_PHONE = "201032303233";
+
+        let currentBranchId = "1";
+
+        /**
+         * اسم الدالة: getBranchFromURL
+         * المميزات: قراءة معرّف الفرع من الرابط (?branch=X) بدقة وتعيين الفرع رقم 1 كافتراضي
+         * مربوطة بـ: تعمل تلقائياً عند بدء تحميل الصفحة (DOMContentLoaded)
+         * نصائح عند التعامل معها: المعرفات المدعومة هي من 1 إلى 5
+         */
+        function getBranchFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            const branchParam = params.get('branch');
+            if (branchParam && BRANCHES_CONFIG[branchParam]) {
+                return branchParam;
+            }
+            return "1";
+        }
+
+        /**
+         * اسم الدالة: renderBranchData
+         * المميزات: حقن وتحديث كافة الروابط والنصوص في الصفحة بحسب بيانات الفرع النشط
+         * مربوطة بـ: استدعاء عند تهيئة الصفحة
+         * نصائح عند التعامل معها: يتم ترميز نصوص الواتساب تلقائياً عبر encodeURIComponent
+         */
+        function renderBranchData(branchId) {
+            currentBranchId = branchId;
+            const branch = BRANCHES_CONFIG[branchId];
+
+            // تحديث نصوص الفرع
+            document.getElementById('branchNameDisplay').textContent = branch.name;
+            document.getElementById('branchAddressDisplay').textContent = branch.address;
+
+            // تحديث رابط تقييم خرائط جوجل المباشر
+            document.getElementById('btnMaps').href = branch.mapsUrl;
+
+            // تحديث رابط محادثة واتساب الفرع
+            const waText = encodeURIComponent(`السلام عليكم، أتواصل معكم بخصوص استفسار من عملاء ${branch.name} 🛵`);
+            document.getElementById('btnWhatsapp').href = `https://api.whatsapp.com/send?phone=${branch.whatsapp}&text=${waText}`;
+
+            // تحديث رابط الشكاوى المركزي
+            const complaintText = encodeURIComponent(`مرحباً إدارة المتابعة، أود تقديم استفسار / شكوى بخصوص: ${branch.name}`);
+            document.getElementById('btnComplaints').href = `https://api.whatsapp.com/send?phone=${CENTRAL_COMPLAINTS_PHONE}&text=${complaintText}`;
+
+            // تحديث بيانات إنستاباي
+            document.getElementById('instapayDisplay').textContent = branch.instapayUser;
+            document.getElementById('btnOpenInstapay').href = branch.instapayUrl;
+        }
+
+        /**
+         * اسم الدالة: saveBranchContact
+         * المميزات: توليد وتنزيل كارت اتصال رقمي vCard (.vcf) لحفظ بيانات الفرع في الهاتف بضغطة واحدة
+         * مربوطة بـ: زر "حفظ رقم الفرع في الهاتف"
+         * نصائح عند التعامل معها: متوافق مع نظامي Android و iOS
+         */
+        function saveBranchContact() {
+            const branch = BRANCHES_CONFIG[currentBranchId];
+            const vCardData = [
+                'BEGIN:VCARD',
+                'VERSION:3.0',
+                `FN:Scooter Shop - ${branch.name}`,
+                'ORG:Scooter Shop Company',
+                `TEL;TYPE=CELL,VOICE:${branch.phone}`,
+                `ADR;TYPE=WORK:;;${branch.address};;;;`,
+                'TITLE:معرض سكوتر شوب',
+                'NOTE:خدمة عملاء ومعارض سكوتر شوب الرسمية',
+                'END:VCARD'
+            ].join('\n');
+
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+            downloadLink.download = `ScooterShop_${branch.name.replace(/\s+/g, '_')}.vcf`;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(url);
+
+            showToast("جاري تنزيل كارت جهة الاتصال...");
+        }
+
+        /**
+         * اسم الدالة: copyInstapayUser
+         * المميزات: نسخ معرف الدفع عبر إنستاباي إلى الحافظة
+         * مربوطة بـ: زر النسخ في نافذة إنستاباي
+         * نصائح عند التعامل معها: يعتمد على Clipboard API الحديث
+         */
+        function copyInstapayUser() {
+            const branch = BRANCHES_CONFIG[currentBranchId];
+            navigator.clipboard.writeText(branch.instapayUser).then(() => {
+                showToast("تم نسخ حساب إنستاباي بنجاح");
+            }).catch(() => {
+                showToast("يرجى نسخ الحساب يدوياً");
+            });
+        }
+
+        /**
+         * اسم الدالة: showToast
+         * المميزات: إظهار إشعار تأكيد مؤقت وأنيق أسفل الشاشة
+         * مربوطة بـ: عمليات التنزيل والنسخ
+         * نصائح عند التعامل معها: مدة العرض 2.5 ثانية
+         */
+        function showToast(text) {
+            const toast = document.getElementById('toastMessage');
+            toast.textContent = text;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        /* دوال التحكم في نافذة إنستاباي */
+        function openInstapayModal() {
+            document.getElementById('instapayModal').classList.add('active');
+        }
+
+        function closeInstapayModal() {
+            document.getElementById('instapayModal').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+            }
+        };
+
+        // تهيئة البيانات عند اكتمال تحميل المستند
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialBranch = getBranchFromURL();
+            renderBranchData(initialBranch);
+        });
+    </script>
+</body>
+</html>
